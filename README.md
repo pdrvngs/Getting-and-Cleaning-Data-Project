@@ -1,7 +1,11 @@
-# Getting-and-Cleaning-Data-Project
+# Getting and Cleaning Data Project
 ### My submission for the course project of the John Hopkins University Getting and Cleaning Data course on Coursera
 Luis Venegas <br><br>
 #### This README file explains the code in the run_analysis script. 
+
+###### NOTE: This script uses functions in some of the steps simply to reduce the amount of R workspace items created when running the script.
+
+
 
 ##### Obtaining the Data: 
 The run_analysis script will automatically download the dataset required for the analysis. <br>
@@ -33,6 +37,19 @@ Once we have the desired names, we just subset our complete dataset using the co
 ##### Naming Activities
 Creating a function and using an apply function allows for the renaming of all the activity labels from the number ID to their descriptive name. <br>
 The function is created to take a row from the data, and replace the number in the "Label" column for its equivalent name by using the number in the row as the index we want from the activity labels that were preloaded at the start of the script.
+
+##### Descriptive Variable Names
+This step seemed a little tricky as the variable names seemed descriptive enough, neverthless the following changes were made: 
+- The f and t prefixes to the variable names were changed to their due meaning (frequency and time) 
+- The dashes "-" where removed and replaced for spaces to help with readability.
+- The parentheses were removed from the variable names to increase readibility
+
+##### Summary of the data by finding the mean of each activity per subject. 
+This step was done in one line with the huge help of the dplyr package. <br>
+The modified dataset is grouped using dplyr's group_by, which allows us to apply a mean function to all columns using summarise_all while respecting the individual values of the Subject and Label  <br>
+
+##### Writing the txt file with the tidy data
+Simply uses the write.table function with row.names = F to create a txt file with the clean data. 
 
 
 
