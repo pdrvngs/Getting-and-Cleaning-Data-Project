@@ -51,7 +51,7 @@ get_wanted_features = function(){
   mean_std = grepl("(mean|std)\\(\\)", features_names)
   wanted_features = as.character(features_names[mean_std])
   wanted_features = c("Subject", "Label", wanted_features)
-  return( complete_data[,wanted_features])
+  return(complete_data[,wanted_features])
 }
 
 filtered_data = get_wanted_features()
